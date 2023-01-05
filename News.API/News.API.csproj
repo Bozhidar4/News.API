@@ -23,4 +23,8 @@
     <ProjectReference Include="..\News.Persistence\News.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\Interfaces\" />
+  </ItemGroup>
+
 </Project>

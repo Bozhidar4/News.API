@@ -13,8 +13,6 @@ namespace News.Domain.TopHeadlines
         public DateTime? PublishedAt { get; set; }
         public string? Content { get; set; }
         public string? CountryCode { get; set; }
-        public int SourceId { get; set; }
-        
-        public Source Source { get; set; }
+        public int? SourceId { get; set; }
     }
 }
