@@ -2,6 +2,7 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using News.API.Mapping;
 using News.API.Services;
+using News.API.Services.Interfaces;
 using News.Domain.Countries;
 using News.Domain.Sources;
 using News.Domain.TopHeadlines;
@@ -16,6 +17,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddHostedService<NewsBackgroundService>();
+
+builder.Services.AddSingleton<ICountryService, CountryService>();
 
 ConfigureRepositories(builder.Services);
 ConfigurePersistance(builder);
@@ -63,6 +66,7 @@ void ConfigureAutoMapper(IServiceCollection services)
     {
         mc.AddProfile(new TopHeadlineMapping());
         mc.AddProfile(new SourceMapping());
+        mc.AddProfile(new CountryMapping());
     });
 
     IMapper mapper = mappingConfig.CreateMapper();
