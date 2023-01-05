@@ -22,6 +22,8 @@ builder.Services.AddHostedService<NewsBackgroundService>();
 builder.Services.AddSingleton<ICountryService, CountryService>();
 builder.Services.AddScoped<ITopHeadlineService, TopHeadlineService>();
 builder.Services.AddScoped<ISourceService, SourceService>();
+builder.Services.AddScoped<IHelperService, HelperService>();
+builder.Services.AddScoped<IEverythingService, EverythingService>();
 
 ConfigureRepositories(builder.Services);
 ConfigurePersistance(builder);
