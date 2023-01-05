@@ -1,6 +1,9 @@
-﻿namespace News.Domain.Countries
+﻿using News.Domain.Core;
+
+namespace News.Domain.Countries
 {
-    public interface ICountryRepository
+    public interface ICountryRepository : IRepository<Country, int>
     {
+        Task<IList<string?>> GetAllCountryCodesAsync();
     }
 }

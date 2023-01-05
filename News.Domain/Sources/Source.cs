@@ -1,13 +1,11 @@
-﻿using News.Domain.Articles;
-using News.Domain.Core;
+﻿using News.Domain.Core;
+using News.Domain.TopHeadlines;
 
 namespace News.Domain.Sources
 {
     public class Source : Entity<int>
     {
-        public string Name { get; set; }
-        public int ArticleId { get; set; }
-
-        public Article Article { get; set; }
+        public string? NewsApiId { get; set; }
+        public string? Name { get; set; }
     }
 }

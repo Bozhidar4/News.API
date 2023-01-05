@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using News.Domain.Articles;
 using News.Domain.Countries;
 using News.Domain.Sources;
+using News.Domain.TopHeadlines;
 using News.Persistence.Extensions;
 using News.Shared.Persistence;
 using System.Reflection;
@@ -13,7 +13,7 @@ namespace News.Persistence
     {
         public DbSet<Country> Countries { get; set; }
         public DbSet<Source> Sources { get; set; }
-        public DbSet<Article> Articles { get; set; }
+        public DbSet<TopHeadline> TopHeadlines { get; set; }
 
         private readonly IConfiguration _configuration;
 

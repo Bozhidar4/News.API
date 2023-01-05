@@ -1,6 +1,8 @@
-﻿namespace News.Domain.TopHeadlines
+﻿using News.Domain.Core;
+
+namespace News.Domain.TopHeadlines
 {
-    public interface ITopHeadlineRepository
+    public interface ITopHeadlineRepository : IRepository<TopHeadline, int>
     {
     }
 }
