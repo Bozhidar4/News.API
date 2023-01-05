@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using News.API.Models;
 
 namespace News.API.Mapping
 {
@@ -10,6 +11,8 @@ namespace News.API.Mapping
                 .ForMember(s => s.Id, opt => opt.Ignore())
                 .ForMember(s => s.NewsApiId, opt => opt.MapFrom(s => s.Id))
                 .ForMember(s => s.Name, opt => opt.MapFrom(s => s.Name));
+
+            CreateMap<Domain.Sources.Source, SourceModel>();
         }
     }
 }
