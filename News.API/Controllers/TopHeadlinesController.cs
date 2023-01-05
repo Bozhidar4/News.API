@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using News.API.Services.Interfaces;
 
 namespace News.API.Controllers
@@ -19,6 +18,13 @@ namespace News.API.Controllers
         public async Task<IActionResult> Get(string countryCode)
         {
             return Ok(await _topHeadlineService.GetByCountryCodeAsync(countryCode));
+        }
+
+        [HttpGet]
+        [Route("{sourceId:int}")]
+        public async Task<IActionResult> Get(int sourceId)
+        {
+            return Ok(await _topHeadlineService.GetBySourceIdAsync(sourceId));
         }
     }
 }

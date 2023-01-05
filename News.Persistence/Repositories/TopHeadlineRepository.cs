@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using News.Domain.TopHeadlines;
 using News.Persistence.Core;
+using System.Linq.Expressions;
 
 namespace News.Persistence.Repositories
 {
@@ -12,10 +13,14 @@ namespace News.Persistence.Repositories
             : base(dbContext)
         { }
 
-        public async Task<IEnumerable<TopHeadline?>> GetTopHeadlinesByCountryCodeAsync(string countryCode)
+        public async Task<IEnumerable<TopHeadline?>> GetTopHeadlinesByAsync(string? countryCode, int? sourceId)
         {
+            Expression<Func<TopHeadline, bool>> condition = th =>
+                (!string.IsNullOrWhiteSpace(countryCode) || th.CountryCode == countryCode) &&
+                (!sourceId.HasValue || th.SourceId == sourceId.Value);
+
             return await Query
-                .Where(q => q.CountryCode == countryCode)
+                .Where(condition)
                 .ToListAsync();
         }
     }

@@ -21,7 +21,13 @@ namespace News.API.Services
         public async Task<IEnumerable<TopHeadlineModel>> GetByCountryCodeAsync(string countryCode)
         {
             return _mapper.Map<IEnumerable<TopHeadlineModel>>(
-                await _topHeadlineRepository.GetTopHeadlinesByCountryCodeAsync(countryCode));
+                await _topHeadlineRepository.GetTopHeadlinesByAsync(countryCode, null));
+        }
+
+        public async Task<IEnumerable<TopHeadlineModel>> GetBySourceIdAsync(int sourceId)
+        {
+            return _mapper.Map<IEnumerable<TopHeadlineModel>>(
+                await _topHeadlineRepository.GetTopHeadlinesByAsync(null, sourceId));
         }
     }
 }

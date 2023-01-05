@@ -4,6 +4,6 @@ namespace News.Domain.TopHeadlines
 {
     public interface ITopHeadlineRepository : IRepository<TopHeadline, int>
     {
-        Task<IEnumerable<TopHeadline?>> GetTopHeadlinesByCountryCodeAsync(string countryCode);
+        Task<IEnumerable<TopHeadline?>> GetTopHeadlinesByAsync(string? countryCode, int? sourceId);
     }
 }
