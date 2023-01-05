@@ -19,6 +19,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHostedService<NewsBackgroundService>();
 
 builder.Services.AddSingleton<ICountryService, CountryService>();
+builder.Services.AddScoped<ITopHeadlineService, TopHeadlineService>();
 
 ConfigureRepositories(builder.Services);
 ConfigurePersistance(builder);

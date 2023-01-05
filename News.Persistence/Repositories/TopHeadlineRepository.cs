@@ -1,4 +1,5 @@
-﻿using News.Domain.TopHeadlines;
+﻿using Microsoft.EntityFrameworkCore;
+using News.Domain.TopHeadlines;
 using News.Persistence.Core;
 
 namespace News.Persistence.Repositories
@@ -10,5 +11,12 @@ namespace News.Persistence.Repositories
         public TopHeadlineRepository(NewsDBContext dbContext)
             : base(dbContext)
         { }
+
+        public async Task<IEnumerable<TopHeadline?>> GetTopHeadlinesByCountryCodeAsync(string countryCode)
+        {
+            return await Query
+                .Where(q => q.CountryCode == countryCode)
+                .ToListAsync();
+        }
     }
 }
